@@ -30,11 +30,13 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.createTaskBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.RemindBtnEx = new System.Windows.Forms.Button();
+            this.createTaskBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -72,36 +74,48 @@
             this.splitContainer3.SplitterDistance = 86;
             this.splitContainer3.TabIndex = 0;
             // 
-            // createTaskBtn
-            // 
-            this.createTaskBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.createTaskBtn.Location = new System.Drawing.Point(0, 622);
-            this.createTaskBtn.Name = "createTaskBtn";
-            this.createTaskBtn.Size = new System.Drawing.Size(1001, 58);
-            this.createTaskBtn.TabIndex = 0;
-            this.createTaskBtn.Text = "button1";
-            this.createTaskBtn.UseVisualStyleBackColor = true;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.dateTimePicker2);
+            this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.RemindBtnEx);
             this.panel1.Location = new System.Drawing.Point(2, 258);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1001, 48);
             this.panel1.TabIndex = 1;
             // 
-            // button1
+            // dateTimePicker2
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.Location = new System.Drawing.Point(931, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(70, 48);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dateTimePicker2.Location = new System.Drawing.Point(679, 0);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.ShowCheckBox = true;
+            this.dateTimePicker2.Size = new System.Drawing.Size(249, 22);
+            this.dateTimePicker2.TabIndex = 9;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker1.Location = new System.Drawing.Point(679, 26);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.ShowCheckBox = true;
+            this.dateTimePicker1.ShowUpDown = true;
+            this.dateTimePicker1.Size = new System.Drawing.Size(249, 22);
+            this.dateTimePicker1.TabIndex = 8;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.textBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(17, 0);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(662, 48);
+            this.textBox1.TabIndex = 7;
             // 
             // radioButton1
             // 
@@ -115,15 +129,26 @@
             this.radioButton1.TabIndex = 6;
             this.radioButton1.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // RemindBtnEx
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox1.Location = new System.Drawing.Point(17, 0);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(875, 48);
-            this.textBox1.TabIndex = 7;
+            this.RemindBtnEx.Dock = System.Windows.Forms.DockStyle.Right;
+            this.RemindBtnEx.Location = new System.Drawing.Point(928, 0);
+            this.RemindBtnEx.Name = "RemindBtnEx";
+            this.RemindBtnEx.Size = new System.Drawing.Size(73, 48);
+            this.RemindBtnEx.TabIndex = 1;
+            this.RemindBtnEx.Text = "button1";
+            this.RemindBtnEx.UseVisualStyleBackColor = true;
+            // 
+            // createTaskBtn
+            // 
+            this.createTaskBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.createTaskBtn.Location = new System.Drawing.Point(0, 622);
+            this.createTaskBtn.Name = "createTaskBtn";
+            this.createTaskBtn.Size = new System.Drawing.Size(1001, 58);
+            this.createTaskBtn.TabIndex = 0;
+            this.createTaskBtn.Text = "Добавить задачу";
+            this.createTaskBtn.UseVisualStyleBackColor = true;
+            this.createTaskBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.createTaskBtn_MouseClick);
             // 
             // Form1
             // 
@@ -131,9 +156,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1217, 680);
             this.Controls.Add(this.splitContainer1);
+            this.DoubleBuffered = true;
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -152,9 +180,11 @@
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.Button createTaskBtn;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button RemindBtnEx;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }
 
