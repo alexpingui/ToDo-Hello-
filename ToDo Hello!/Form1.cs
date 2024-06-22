@@ -27,7 +27,6 @@ namespace ToDo_Hello_
         {
             //Создание панели редактирования задачи
             newTaskPanel = new Panel();
-            newTaskPanel.Location = new Point(createTaskBtn.Location.X, createTaskBtn.Location.Y - createTaskBtn.Size.Height);
             newTaskPanel.Size = new Size(createTaskBtn.Width, createTaskBtn.Height);
             newTaskPanel.BackColor = Color.White;
             newTaskPanel.Dock = DockStyle.Bottom;
@@ -90,7 +89,31 @@ namespace ToDo_Hello_
                 createTaskBtn.Visible = true;
                 createTaskBtn.Enabled = true;
                 Task task = new Task(user, textOfTask.Text, dateOfTask.Value.Date, timeOfTask.Value.TimeOfDay);
+                isTaskPanelActive = false;
+                
+                AddNewTaskInLists(task);
             }
+        }
+
+        private void AddNewTaskInLists(Task task)
+        {
+            
+        }
+
+        private void AddNewTaskInTodayList(Task task)
+        {
+            Panel taskForToday = new Panel();
+            taskForToday.BackColor = Color.White;
+            taskForToday.Dock = DockStyle.Top;
+
+            splitContainer1.Panel2.Controls.Add(taskForToday);
+
+           
+        }
+
+        private void AddNewTaskInPlansList(Task task)
+        {
+                
         }
     }
 }
