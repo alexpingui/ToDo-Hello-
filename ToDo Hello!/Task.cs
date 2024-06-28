@@ -11,8 +11,8 @@ namespace ToDo_Hello_
     {
         public string user;
         public string task;
-        DateTime date;
-        TimeSpan time;
+        public DateTime date;
+        public TimeSpan time;
 
         /// <summary>
         ///Создание новой задачи 
